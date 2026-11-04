@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://formsubmit.co; frame-src https://www.google.com; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Studio Klassiek | DJ- en producestudio in Den Bosch</title>
+<meta name="description" content="Studio Klassiek in Den Bosch: huur een DJ- of producestudio vanaf 30 minuten, of leer draaien en produceren met DJ- en produce-lessen. Geen ervaring nodig.">
+<link rel="icon" href="favicon.ico">
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="home">
+
+<a class="skip" href="#main">Naar de inhoud</a>
+
+<header class="site-header">
+  <a class="brand" href="#top" aria-label="Studio Klassiek, naar boven">
+    <img src="assets/logo-cream.png" width="657" height="285" alt="Studio Klassiek">
+  </a>
+  <div class="head-actions">
+    <a class="icon-btn" href="self-service.html" aria-label="Studio huren">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="1"/><path d="M4 10h16M9 3v4M15 3v4"/></svg>
+    </a>
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="menu" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<nav class="menu" id="menu" aria-label="Hoofdmenu" hidden>
+  <a href="self-service.html">Studio huren</a>
+  <a href="lessen-boeken.html">Lessen boeken</a>
+  <a href="index.html#studio">De studio</a>
+</nav>
+<main id="main">
+
+<!-- 1. SFEERBEELD, KORTE UITLEG EN TWEE ROUTES -->
+<section class="hero hero-photo" id="top">
+  <div class="hero-media" aria-hidden="true">
+    <!-- Zet hier jullie eigen sfeerfoto neer: site/assets/foto/hero.jpg (liggend, minimaal 1800 px breed) -->
+    <img data-photo src="assets/foto/hero.jpg" alt="" width="1800" height="1200" fetchpriority="high">
+    <span class="ph-label">Sfeerfoto: iemand achter de decks, licht aan, studio in gebruik</span>
+  </div>
+  <div class="hero-inner">
+    <p class="tag">DJ- en producestudio &middot; Den Bosch</p>
+    <h1>Jouw studio.<br><em>Jouw sound.</em></h1>
+    <p class="lead">Die track in je hoofd verdient een echte studio. Zet je koptelefoon op, de rest staat al klaar.</p>
+    <p class="small">Draai. Produceer. Groei.</p>
+    <div class="routes">
+      <a class="route" href="#huren">
+        <small>Kun je al draaien of produceren?</small>
+        <span class="btn"><span>Huur een studio</span><i class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></span>
+      </a>
+      <a class="route" href="#lessen">
+        <small>Wil je het leren?</small>
+        <span class="btn alt"><span>Ontdek de lessen</span><i class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 2. AANBOD: STUDIO HUREN -->
+<section class="block" id="huren">
+  <p class="eyebrow">Voor wie al draait of produceert</p>
+  <h2>Studio huren</h2>
+  <p class="intro">Werk zelf, zonder docent. Kies je studio, dag en tijd, vanaf 30 minuten.</p>
+  <div class="offer-grid">
+    <article class="offer">
+      <figure class="ph">
+        <img data-photo src="assets/foto/dj-studio.jpg" alt="De DJ-studio met de Pioneer XDJ-AZ" width="1200" height="900" loading="lazy">
+        <figcaption class="ph-label">Foto: DJ-studio</figcaption>
+      </figure>
+      <div class="offer-body">
+        <h3>DJ-studio</h3>
+        <p>Pioneer XDJ-AZ met twee boothmonitoren. Oefen je set, neem een mix op of bereid je voor op een optreden.</p>
+        <p class="status"><span class="dot" aria-hidden="true"></span>Opent binnenkort &middot; verwachte opening: <span class="todo">datum volgt</span></p>
+      </div>
+    </article>
+    <article class="offer">
+      <figure class="ph">
+        <img data-photo src="assets/foto/produce-studio.jpg" alt="De producestudio met studiomonitoren en keyboard" width="1200" height="900" loading="lazy">
+        <figcaption class="ph-label">Foto: Produce-studio</figcaption>
+      </figure>
+      <div class="offer-body">
+        <h3>Produce-studio</h3>
+        <p>EVE Audio-studiomonitoren, Audient iD14 MKII, ultrawide monitor, keyboard met 88 toetsen en een vocal booth.</p>
+        <p class="status"><span class="dot" aria-hidden="true"></span>Opent binnenkort &middot; verwachte opening: <span class="todo">datum volgt</span></p>
+      </div>
+    </article>
+  </div>
+  <div class="notify" id="early">
+    <div>
+      <h3>Houd me op de hoogte</h3>
+      <p>De DJ-studio en de Produce-studio openen binnenkort. Laat je e-mailadres achter en je hoort als eerste wanneer je kunt boeken.</p>
+    </div>
+    <form id="earlyForm" class="early-form" novalidate>
+      <label class="sr-only" for="earlyEmail">E-mailadres</label>
+      <input id="earlyEmail" name="email" type="email" autocomplete="email" maxlength="120" placeholder="E-mailadres" required>
+      <button class="btn" type="submit"><span>Aanmelden</span><i class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></button>
+    </form>
+    <p class="early-msg" id="earlyMsg" role="status"></p>
+  </div>
+</section>
+
+<!-- 2. AANBOD: LESSEN -->
+<section class="block" id="lessen">
+  <p class="eyebrow">Voor wie het wil leren</p>
+  <h2>Lessen</h2>
+  <p class="intro">Geen ervaring nodig. Je begint waar jij staat en werkt toe naar iets wat je echt kunt laten horen. Je krijgt een USB-stick met muziek mee.</p>
+
+  <article class="course">
+    <div class="course-head">
+      <h3>DJ-lessen</h3>
+      <p class="course-sub">Van je eerste overgang naar je eigen set.</p>
+    </div>
+    <ol class="path" aria-label="Wat je leert bij DJ-lessen">
+      <li><b>Start</b><span>Je leert de apparatuur kennen, tellen in de muziek en je eerste overgang maken.</span></li>
+      <li><b>Na 5 lessen</b><span>Je beatmatcht zelf, maakt vloeiende overgangen en gebruikt effecten met gevoel.</span></li>
+      <li><b>Na 10 lessen</b><span>Je selecteert je muziek en bouwt een eigen set op in jouw genre, klaar om te laten horen.</span></li>
+    </ol>
+    <p class="genres">Kies je genre: house, techno, techhouse, R&amp;B, hiphop, disco, classics of Nederlandstalig.</p>
+    <div class="course-foot">
+      <dl class="price">
+        <div><dt>5 lessen</dt><dd>€ 600</dd></div>
+        <div><dt>10 lessen</dt><dd>€ 1.050</dd></div>
+      </dl>
+      <dl class="facts-list">
+        <div><dt>Lesduur</dt><dd class="todo">Volgt</dd></div>
+        <div><dt>Vorm</dt><dd class="todo">Privéles of groep: volgt</dd></div>
+        <div><dt>Docent</dt><dd class="todo">Naam volgt</dd></div>
+        <div><dt>Meenemen</dt><dd>Niets verplicht. Eigen koptelefoon mag.</dd></div>
+        <div><dt>Je werkt op</dt><dd>Pioneer XDJ-AZ met twee boothmonitoren</dd></div>
+      </dl>
+    </div>
+  </article>
+
+  <article class="course">
+    <div class="course-head">
+      <h3>Produce-lessen</h3>
+      <p class="course-sub">Van een eerste idee naar een uitgewerkte track.</p>
+    </div>
+    <ol class="path" aria-label="Wat je leert bij produce-lessen">
+      <li><b>Start</b><span>Je zet je eerste beat en melodie neer en leert hoe je software en studio werken.</span></li>
+      <li><b>Na 5 lessen</b><span>Je bouwt een arrangement op en gebruikt effecten om je geluid vorm te geven.</span></li>
+      <li><b>Na 10 lessen</b><span>Je neemt vocals op in de vocal booth en mixt je track af tot een complete productie.</span></li>
+    </ol>
+    <div class="course-foot">
+      <dl class="price">
+        <div><dt>5 lessen</dt><dd>€ 875</dd></div>
+        <div><dt>10 lessen</dt><dd>€ 1.500</dd></div>
+      </dl>
+      <dl class="facts-list">
+        <div><dt>Lesduur</dt><dd class="todo">Volgt</dd></div>
+        <div><dt>Vorm</dt><dd class="todo">Privéles of groep: volgt</dd></div>
+        <div><dt>Docent</dt><dd class="todo">Naam volgt</dd></div>
+        <div><dt>Meenemen</dt><dd>Je ideeën. Eigen koptelefoon mag.</dd></div>
+        <div><dt>Je werkt met</dt><dd>EVE Audio-monitoren, Audient iD14 MKII, keyboard met 88 toetsen, vocal booth</dd></div>
+      </dl>
+    </div>
+  </article>
+
+  <p class="note">Voor beginners en gevorderden, jong en oud. Twijfel je? Begin met een kennismaking.</p>
+  <a class="btn" href="lessen-boeken.html"><span>Les of kennismaking aanvragen</span><i class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></a>
+</section>
+
+<!-- 3. DE RUIMTES EN APPARATUUR -->
+<section class="block wide" id="studio">
+  <p class="eyebrow">Binnenkijken</p>
+  <h2>De studio</h2>
+  <div class="gallery">
+    <figure class="ph g-big">
+      <img data-photo src="assets/foto/studio-1.jpg" alt="Overzicht van de studio met verlichting aan" width="1600" height="1000" loading="lazy">
+      <figcaption class="ph-label">Foto: overzicht studio, verlichting aan</figcaption>
+    </figure>
+    <figure class="ph">
+      <img data-photo src="assets/foto/decks.jpg" alt="Close-up van de Pioneer XDJ-AZ" width="900" height="900" loading="lazy">
+      <figcaption class="ph-label">Foto: close-up decks</figcaption>
+    </figure>
+    <figure class="ph">
+      <img data-photo src="assets/foto/vocal-booth.jpg" alt="De vocal booth" width="900" height="900" loading="lazy">
+      <figcaption class="ph-label">Foto: vocal booth</figcaption>
+    </figure>
+    <figure class="ph">
+      <img data-photo src="assets/foto/produce-setup.jpg" alt="Produce-setup met studiomonitoren en keyboard" width="900" height="900" loading="lazy">
+      <figcaption class="ph-label">Foto: produce-setup</figcaption>
+    </figure>
+    <figure class="ph">
+      <img data-photo src="assets/foto/les.jpg" alt="Een docent en leerling achter de decks" width="900" height="900" loading="lazy">
+      <figcaption class="ph-label">Foto: les in actie</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- 4. ZO WERKT HET -->
+<section class="block" id="werkwijze">
+  <h2>Zo werkt het</h2>
+  <ol class="steps">
+    <li><b>Kies</b><span>Een studio huren of een les volgen.</span></li>
+    <li><b>Boek</b><span>Kies een dag en tijd, vanaf 30 minuten. Je krijgt een bevestiging per e-mail.</span></li>
+    <li><b>Kom binnen</b><span>Met je eigen toegang, of je docent ontvangt je.</span></li>
+    <li><b>Begin</b><span>Koptelefoon op. De apparatuur staat voor je klaar.</span></li>
+  </ol>
+</section>
+
+<!-- 5. WIE ERACHTER ZITTEN -->
+<section class="block" id="team">
+  <p class="eyebrow">Wie je hier tegenkomt</p>
+  <h2>De docenten</h2>
+  <p class="intro">Stap je binnen zonder ervaring? Dan word je hier goed geholpen. We beginnen bij jouw muzieksmaak en gaan in jouw tempo.</p>
+  <div class="team">
+    <article class="person">
+      <figure class="ph portrait">
+        <img data-photo src="assets/foto/docent-dj.jpg" alt="Portret van de DJ-docent" width="800" height="1000" loading="lazy">
+        <figcaption class="ph-label">Portret DJ-docent</figcaption>
+      </figure>
+      <h3><span class="todo">Naam DJ-docent</span></h3>
+      <p class="role">DJ-lessen</p>
+      <p class="todo-block">Kort verhaal: waar draait hij of zij, hoe lang al, en wat vindt hij of zij het mooist aan lesgeven?</p>
+    </article>
+    <article class="person">
+      <figure class="ph portrait">
+        <img data-photo src="assets/foto/docent-produce.jpg" alt="Portret van de produce-docent" width="800" height="1000" loading="lazy">
+        <figcaption class="ph-label">Portret produce-docent</figcaption>
+      </figure>
+      <h3><span class="todo">Naam produce-docent</span></h3>
+      <p class="role">Produce-lessen</p>
+      <p class="todo-block">Kort verhaal: wat heeft hij of zij gemaakt of uitgebracht, en hoe helpt hij of zij beginners op weg?</p>
+    </article>
+  </div>
+</section>
+
+<!-- 6. ERVARINGEN: zet dit blok aan zodra er ervaringen van klanten zijn
+<section class="block" id="ervaringen">
+  <h2>Ervaringen</h2>
+  <div class="quotes">
+    <blockquote><p>"Tekst van de klant."</p><cite>Naam, DJ-lessen</cite></blockquote>
+  </div>
+</section>
+-->
+
+<!-- 7. VEELGESTELDE VRAGEN EN CONTACT -->
+<section class="block" id="faq">
+  <h2>Veelgestelde vragen</h2>
+  <div class="faq">
+    <details>
+      <summary>Moet ik al kunnen draaien of produceren?</summary>
+      <p>Nee. Je kunt beginnen met een les en doorgroeien tot zelf een studio huren. Voor beginners en gevorderden, jong en oud.</p>
+    </details>
+    <details>
+      <summary>Wat kost het?</summary>
+      <p>DJ-lessen: 5 lessen € 600, 10 lessen € 1.050. Produce-lessen: 5 lessen € 875, 10 lessen € 1.500. Het tarief voor studio huren volgt. Meld je aan via "Houd me op de hoogte" en je hoort het als eerste.</p>
+    </details>
+    <details>
+      <summary>Hoe lang kan ik een studio boeken?</summary>
+      <p>Vanaf 30 minuten, tot 4 uur. Je kiest zelf je dag en tijd.</p>
+    </details>
+    <details>
+      <summary>Kan ik straks echt ergens draaien?</summary>
+      <p>We hebben contacten met cafés en clubs. Laat je zien dat je klaar bent, dan kijken we samen naar een optreden. Gegarandeerd is het niet.</p>
+    </details>
+    <details>
+      <summary>Wanneer kan ik beginnen?</summary>
+      <p>Lessen kun je nu al aanvragen. De DJ-studio en de Produce-studio openen binnenkort.</p>
+    </details>
+  </div>
+  <p class="note"><a class="textlink" href="faq.html">Alle vragen</a></p>
+</section>
+
+<section class="block" id="locatie">
+  <h2>Contact en locatie</h2>
+  <div class="map">
+    <iframe title="Kaart van Den Bosch" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Den+Bosch&amp;output=embed"></iframe>
+  </div>
+  <dl class="info">
+    <div><dt>Adres</dt><dd class="todo">Volgt ('s-Hertogenbosch)</dd></div>
+    <div><dt>Openbaar vervoer</dt><dd class="todo">Volgt</dd></div>
+    <div><dt>Parkeren</dt><dd class="todo">Volgt</dd></div>
+    <div><dt>Toegang</dt><dd>Je krijgt een persoonlijke toegang, vastgelegd in de <a href="assets/sleutelovereenkomst.pdf" target="_blank" rel="noopener">sleutelovereenkomst (PDF)</a>. <a class="textlink" href="toegang.html">Alle afspraken</a></dd></div>
+    <div><dt>Meenemen</dt><dd>Je eigen koptelefoon als je die hebt. De rest staat klaar.</dd></div>
+    <div><dt>Telefoon</dt><dd><a href="tel:+31626232734">06 26232734</a></dd></div>
+    <div><dt>E-mail</dt><dd><a href="mailto:studioklassiek.db@gmail.com">studioklassiek.db@gmail.com</a></dd></div>
+  </dl>
+</section>
+
+</main>
+
+<footer class="site-footer big">
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <img src="assets/logo-cream.png" width="657" height="285" alt="Studio Klassiek">
+      <p>Draai. Produceer. Groei.</p>
+      <p>DJ- en producestudio in Den Bosch</p>
+    </div>
+    <nav aria-label="Footer menu">
+      <h4>Menu</h4>
+      <a href="index.html">Home</a>
+      <a href="self-service.html">Studio huren</a>
+      <a href="index.html#lessen">Lessen</a>
+      <a href="faq.html">FAQ</a>
+    </nav>
+    <nav aria-label="Meer">
+      <h4>Meer</h4>
+      <a href="index.html#early">Houd me op de hoogte</a>
+    </nav>
+    <nav aria-label="Juridisch">
+      <h4>Juridisch</h4>
+      <a href="privacy.html">Privacybeleid</a>
+      <a href="voorwaarden.html">Algemene voorwaarden</a>
+      <a href="boekingsvoorwaarden.html">Boekingsvoorwaarden</a>
+      <a href="toegang.html">Toegang en sleutel</a>
+    </nav>
+    <div>
+      <h4>Contact</h4>
+      <a href="mailto:studioklassiek.db@gmail.com">studioklassiek.db@gmail.com</a>
+      <a href="tel:+31626232734">06 26232734</a>
+    </div>
+  </div>
+  <p class="copy">&copy; 2026 Studio Klassiek</p>
+</footer>
+
+<script src="common.js"></script>
+<script src="early.js"></script>
+</body>
+</html>
