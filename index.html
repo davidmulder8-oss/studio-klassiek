@@ -41,10 +41,10 @@
     <span class="ph-label">Sfeerfoto: iemand achter de decks, licht aan, studio in gebruik</span>
   </div>
   <div class="hero-inner">
-    <p class="tag">DJ- en producestudio &middot; Den Bosch</p>
-    <h1>Jouw studio.<br><em>Jouw sound.</em></h1>
-    <p class="lead">Die track in je hoofd verdient een echte studio. Zet je koptelefoon op, de rest staat al klaar.</p>
-    <p class="small">Draai. Produceer. Groei.</p>
+    <p class="tag" data-c="home.tag">DJ- en producestudio &middot; Den Bosch</p>
+    <h1><span data-c="home.line1">Jouw studio.</span><br><em data-c="home.line2">Jouw sound.</em></h1>
+    <p class="lead" data-c="home.lead">Die track in je hoofd verdient een echte studio. Zet je koptelefoon op, de rest staat al klaar.</p>
+    <p class="small" data-c="home.small">Draai. Produceer. Groei.</p>
     <div class="routes">
       <a class="route" href="#huren">
         <small>Kun je al draaien of produceren?</small>
@@ -70,9 +70,9 @@
         <figcaption class="ph-label">Foto: DJ-studio</figcaption>
       </figure>
       <div class="offer-body">
-        <h3>DJ-studio</h3>
-        <p>Pioneer XDJ-AZ met twee boothmonitoren. Oefen je set, neem een mix op of bereid je voor op een optreden.</p>
-        <p class="status"><span class="dot" aria-hidden="true"></span>Opent binnenkort &middot; verwachte opening: <span class="todo">datum volgt</span></p>
+        <h3 data-c="studios.0.name">DJ-studio</h3>
+        <p data-c="studios.0.text">Pioneer XDJ-AZ met twee boothmonitoren. Oefen je set, neem een mix op of bereid je voor op een optreden.</p>
+        <p class="status" data-studio="0"><span class="dot" aria-hidden="true"></span><span class="st-text">Opent binnenkort</span><span class="st-open"> &middot; verwachte opening: <span class="todo" data-st-date>datum volgt</span></span></p>
       </div>
     </article>
     <article class="offer">
@@ -81,16 +81,16 @@
         <figcaption class="ph-label">Foto: Produce-studio</figcaption>
       </figure>
       <div class="offer-body">
-        <h3>Produce-studio</h3>
-        <p>EVE Audio-studiomonitoren, Audient iD14 MKII, ultrawide monitor, keyboard met 88 toetsen en een vocal booth.</p>
-        <p class="status"><span class="dot" aria-hidden="true"></span>Opent binnenkort &middot; verwachte opening: <span class="todo">datum volgt</span></p>
+        <h3 data-c="studios.1.name">Produce-studio</h3>
+        <p data-c="studios.1.text">EVE Audio-studiomonitoren, Audient iD14 MKII, ultrawide monitor, keyboard met 88 toetsen en een vocal booth.</p>
+        <p class="status" data-studio="1"><span class="dot" aria-hidden="true"></span><span class="st-text">Opent binnenkort</span><span class="st-open"> &middot; verwachte opening: <span class="todo" data-st-date>datum volgt</span></span></p>
       </div>
     </article>
   </div>
   <div class="notify" id="early">
     <div>
       <h3>Houd me op de hoogte</h3>
-      <p>De DJ-studio en de Produce-studio openen binnenkort. Laat je e-mailadres achter en je hoort als eerste wanneer je kunt boeken.</p>
+      <p data-c="home.notify">De DJ-studio en de Produce-studio openen binnenkort. Laat je e-mailadres achter en je hoort als eerste wanneer je kunt boeken.</p>
     </div>
     <form id="earlyForm" class="early-form" novalidate>
       <label class="sr-only" for="earlyEmail">E-mailadres</label>
@@ -120,14 +120,14 @@
     <p class="genres">Kies je genre: house, techno, techhouse, R&amp;B, hiphop, disco, classics of Nederlandstalig.</p>
     <div class="course-foot">
       <dl class="price">
-        <div><dt>5 lessen</dt><dd>€ 600</dd></div>
-        <div><dt>10 lessen</dt><dd>€ 1.050</dd></div>
+        <div><dt>5 lessen</dt><dd data-price="lessons.dj.price5">€ 600</dd></div>
+        <div><dt>10 lessen</dt><dd data-price="lessons.dj.price10">€ 1.050</dd></div>
       </dl>
       <dl class="facts-list">
-        <div><dt>Lesduur</dt><dd class="todo">Volgt</dd></div>
-        <div><dt>Vorm</dt><dd class="todo">Privéles of groep: volgt</dd></div>
-        <div><dt>Docent</dt><dd class="todo">Naam volgt</dd></div>
-        <div><dt>Meenemen</dt><dd>Niets verplicht. Eigen koptelefoon mag.</dd></div>
+        <div><dt>Lesduur</dt><dd class="todo" data-c="lessons.dj.duration">Volgt</dd></div>
+        <div><dt>Vorm</dt><dd class="todo" data-c="lessons.dj.form">Priv&eacute;les of groep: volgt</dd></div>
+        <div><dt>Docent</dt><dd class="todo" data-c="team.0.name">Naam volgt</dd></div>
+        <div><dt>Meenemen</dt><dd data-c="lessons.dj.bring">Niets verplicht. Eigen koptelefoon mag.</dd></div>
         <div><dt>Je werkt op</dt><dd>Pioneer XDJ-AZ met twee boothmonitoren</dd></div>
       </dl>
     </div>
@@ -145,14 +145,14 @@
     </ol>
     <div class="course-foot">
       <dl class="price">
-        <div><dt>5 lessen</dt><dd>€ 875</dd></div>
-        <div><dt>10 lessen</dt><dd>€ 1.500</dd></div>
+        <div><dt>5 lessen</dt><dd data-price="lessons.produce.price5">€ 875</dd></div>
+        <div><dt>10 lessen</dt><dd data-price="lessons.produce.price10">€ 1.500</dd></div>
       </dl>
       <dl class="facts-list">
-        <div><dt>Lesduur</dt><dd class="todo">Volgt</dd></div>
-        <div><dt>Vorm</dt><dd class="todo">Privéles of groep: volgt</dd></div>
-        <div><dt>Docent</dt><dd class="todo">Naam volgt</dd></div>
-        <div><dt>Meenemen</dt><dd>Je ideeën. Eigen koptelefoon mag.</dd></div>
+        <div><dt>Lesduur</dt><dd class="todo" data-c="lessons.produce.duration">Volgt</dd></div>
+        <div><dt>Vorm</dt><dd class="todo" data-c="lessons.produce.form">Priv&eacute;les of groep: volgt</dd></div>
+        <div><dt>Docent</dt><dd class="todo" data-c="team.1.name">Naam volgt</dd></div>
+        <div><dt>Meenemen</dt><dd data-c="lessons.produce.bring">Je ideeën. Eigen koptelefoon mag.</dd></div>
         <div><dt>Je werkt met</dt><dd>EVE Audio-monitoren, Audient iD14 MKII, keyboard met 88 toetsen, vocal booth</dd></div>
       </dl>
     </div>
@@ -212,18 +212,18 @@
         <img data-photo src="assets/foto/docent-dj.jpg" alt="Portret van de DJ-docent" width="800" height="1000" loading="lazy">
         <figcaption class="ph-label">Portret DJ-docent</figcaption>
       </figure>
-      <h3><span class="todo">Naam DJ-docent</span></h3>
-      <p class="role">DJ-lessen</p>
-      <p class="todo-block">Kort verhaal: waar draait hij of zij, hoe lang al, en wat vindt hij of zij het mooist aan lesgeven?</p>
+      <h3><span class="todo" data-c="team.0.name">Naam DJ-docent</span></h3>
+      <p class="role" data-c="team.0.role">DJ-lessen</p>
+      <p class="todo-block" data-c="team.0.text">Kort verhaal: waar draait hij of zij, hoe lang al, en wat vindt hij of zij het mooist aan lesgeven?</p>
     </article>
     <article class="person">
       <figure class="ph portrait">
         <img data-photo src="assets/foto/docent-produce.jpg" alt="Portret van de produce-docent" width="800" height="1000" loading="lazy">
         <figcaption class="ph-label">Portret produce-docent</figcaption>
       </figure>
-      <h3><span class="todo">Naam produce-docent</span></h3>
-      <p class="role">Produce-lessen</p>
-      <p class="todo-block">Kort verhaal: wat heeft hij of zij gemaakt of uitgebracht, en hoe helpt hij of zij beginners op weg?</p>
+      <h3><span class="todo" data-c="team.1.name">Naam produce-docent</span></h3>
+      <p class="role" data-c="team.1.role">Produce-lessen</p>
+      <p class="todo-block" data-c="team.1.text">Kort verhaal: wat heeft hij of zij gemaakt of uitgebracht, en hoe helpt hij of zij beginners op weg?</p>
     </article>
   </div>
 </section>
@@ -240,7 +240,7 @@
 <!-- 7. VEELGESTELDE VRAGEN EN CONTACT -->
 <section class="block" id="faq">
   <h2>Veelgestelde vragen</h2>
-  <div class="faq">
+  <div class="faq" data-faq="home">
     <details>
       <summary>Moet ik al kunnen draaien of produceren?</summary>
       <p>Nee. Je kunt beginnen met een les en doorgroeien tot zelf een studio huren. Voor beginners en gevorderden, jong en oud.</p>
@@ -268,16 +268,16 @@
 <section class="block" id="locatie">
   <h2>Contact en locatie</h2>
   <div class="map">
-    <iframe title="Kaart van Den Bosch" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Den+Bosch&amp;output=embed"></iframe>
+    <iframe data-c-map title="Kaart van Den Bosch" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Den+Bosch&amp;output=embed"></iframe>
   </div>
   <dl class="info">
-    <div><dt>Adres</dt><dd class="todo">Volgt ('s-Hertogenbosch)</dd></div>
-    <div><dt>Openbaar vervoer</dt><dd class="todo">Volgt</dd></div>
-    <div><dt>Parkeren</dt><dd class="todo">Volgt</dd></div>
-    <div><dt>Toegang</dt><dd>Je krijgt een persoonlijke toegang. De afspraken lees je bij het boeken.</dd></div>
-    <div><dt>Meenemen</dt><dd>Je eigen koptelefoon als je die hebt. De rest staat klaar.</dd></div>
-    <div><dt>Telefoon</dt><dd><a href="tel:+31626232734">06 26232734</a></dd></div>
-    <div><dt>E-mail</dt><dd><a href="mailto:studioklassiek.db@gmail.com">studioklassiek.db@gmail.com</a></dd></div>
+    <div><dt>Adres</dt><dd class="todo" data-c="contact.address">Volgt ('s-Hertogenbosch)</dd></div>
+    <div><dt>Openbaar vervoer</dt><dd class="todo" data-c="contact.transit">Volgt</dd></div>
+    <div><dt>Parkeren</dt><dd class="todo" data-c="contact.parking">Volgt</dd></div>
+    <div><dt>Toegang</dt><dd data-c="contact.access">Je krijgt een persoonlijke toegang. De afspraken lees je bij het boeken.</dd></div>
+    <div><dt>Meenemen</dt><dd data-c="contact.bring">Je eigen koptelefoon als je die hebt. De rest staat klaar.</dd></div>
+    <div><dt>Telefoon</dt><dd><a data-c-tel href="tel:+31626232734">06 26232734</a></dd></div>
+    <div><dt>E-mail</dt><dd><a data-c-mail href="mailto:studioklassiek.db@gmail.com">studioklassiek.db@gmail.com</a></dd></div>
   </dl>
 </section>
 
@@ -309,14 +309,15 @@
     </nav>
     <div>
       <h4>Contact</h4>
-      <a href="mailto:studioklassiek.db@gmail.com">studioklassiek.db@gmail.com</a>
-      <a href="tel:+31626232734">06 26232734</a>
+      <a data-c-mail href="mailto:studioklassiek.db@gmail.com">studioklassiek.db@gmail.com</a>
+      <a data-c-tel href="tel:+31626232734">06 26232734</a>
     </div>
   </div>
   <p class="copy">&copy; 2026 Studio Klassiek</p>
 </footer>
 
 <script src="common.js"></script>
+<script src="content.js"></script>
 <script src="early.js"></script>
 </body>
 </html>

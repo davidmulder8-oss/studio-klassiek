@@ -446,3 +446,5 @@ dd.todo { justify-self: start; }
 .key-body .callout { margin: 14px 0 4px; padding: 2px 16px 8px; }
 .key-body .callout h2 { margin-top: 12px; }
 .key-body .callout p { color: var(--cream); }
+.status.is-open .dot { background: var(--gold-lt); box-shadow: 0 0 0 4px rgba(217, 178, 122, .22); }
+[hidden] { display: none !important; }

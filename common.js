@@ -17,44 +17,64 @@
     return fetch(path, init).then(function (r) { return r.json().then(function (j) { return { status: r.status, body: j }; }); });
   }
 
-  /* Statische versie (GitHub Pages): geen server, formulieren via FormSubmit */
-  var STATIC_CFG = {"rooms":[{"description":"Pioneer XDJ-AZ met twee boothmonitoren.","name":"DJ-studio","id":"zaal-1","comingSoon":true,"image":""},{"description":"EVE Audio-monitoren, Audient iD14 MKII, keyboard met 88 toetsen en vocal booth.","name":"Produce-studio","id":"zaal-2","comingSoon":true,"image":""}],"maxDaysAhead":90,"expectedOpening":"","openingHours":{"0":{"open":"12:00","close":"20:00"},"1":{"open":"10:00","close":"21:00"},"2":{"open":"10:00","close":"21:00"},"3":{"open":"10:00","close":"21:00"},"4":{"open":"10:00","close":"21:00"},"5":{"open":"10:00","close":"21:00"},"6":{"open":"10:00","close":"21:00"}},"slotMinutes":30,"studioEmail":"studioklassiek.db@gmail.com"};
+  /* Statische versie (GitHub Pages): geen server, formulieren via FormSubmit, instellingen uit content.json */
   var TYPE_NAMES = { kennismaking: 'Kennismaking', dj: 'DJ-les', produce: 'Produce-les' };
+  var cfgPromise = null;
+  function loadCfg() {
+    if (!cfgPromise) {
+      cfgPromise = fetch('content.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }).then(function (c) {
+        var b = c.booking || {}, studios = c.studios || [], first = studios.filter(function (s) { return s.opening; })[0];
+        return {
+          slotMinutes: b.slotMinutes || 30, maxDaysAhead: b.maxDaysAhead || 90, minHoursAhead: b.minHoursAhead == null ? 24 : b.minHoursAhead,
+          openingHours: b.hours || {}, expectedOpening: first ? first.opening : '', studioEmail: (c.contact || {}).email || '',
+          rooms: studios.map(function (s, i) { return { id: 'zaal-' + (i + 1), name: s.name, description: s.text, image: '', comingSoon: s.status !== 'open' }; })
+        };
+      });
+    }
+    return cfgPromise;
+  }
   function jsonRes(status, body) { return Promise.resolve({ status: status, body: body }); }
-  function formPost(name, fields) {
+  function formPost(name, fields, to) {
     var data = {
       _subject: name === 'reservering' ? 'Nieuwe aanvraag ' + fields.reservering + ' - ' + fields.naam : 'Houd me op de hoogte: nieuwe aanmelding',
       _template: 'table', _captcha: 'false', _honey: fields['bot-field'] || ''
     };
     Object.keys(fields).forEach(function (k) { if (k !== 'bot-field') data[k] = fields[k] == null ? '' : String(fields[k]); });
     if (name === 'reservering') data._autoresponse = 'Bedankt voor je aanvraag bij Studio Klassiek. We bevestigen de afspraak zo snel mogelijk per e-mail. Reserveringsnummer: ' + fields.reservering;
-    return fetch('https://formsubmit.co/ajax/' + STATIC_CFG.studioEmail, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(data) });
-  }  function api(path, opts) {
+    return fetch('https://formsubmit.co/ajax/' + to, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(data) });
+  }
+  function api(path, opts) {
     opts = opts || {};
     var url = new URL(path, location.origin), p = url.pathname, q = url.searchParams;
     if (p === '/api/me') return jsonRes(200, { ok: true, user: null, bookings: [] });
-    if (p === '/api/config') return jsonRes(200, STATIC_CFG);
+    if (p === '/api/config') return loadCfg().then(function (cfg) { return { status: 200, body: cfg }; });
     if (p === '/api/slots') {
-      var d = parseIso(q.get('date')), dur = +q.get('duration'), h = STATIC_CFG.openingHours[String(d.getDay())];
-      if (!h) return jsonRes(200, { ok: true, slots: [] });
-      var o = h.open.split(':'), c = h.close.split(':'), open = +o[0] * 60 + +o[1], close = +c[0] * 60 + +c[1], earliest = Date.now() + 24 * 3600 * 1000, slots = [];
-      for (var s = open; s + dur <= close; s += STATIC_CFG.slotMinutes) {
-        var t = new Date(d.getFullYear(), d.getMonth(), d.getDate(), 0, s).getTime();
-        slots.push({ time: pad(Math.floor(s / 60)) + ':' + pad(s % 60), free: t >= earliest });
-      }
-      return jsonRes(200, { ok: true, slots: slots });
+      return loadCfg().then(function (cfg) {
+        var d = parseIso(q.get('date')), dur = +q.get('duration'), h = cfg.openingHours[String(d.getDay())];
+        if (!h) return { status: 200, body: { ok: true, slots: [] } };
+        var o = h.open.split(':'), c = h.close.split(':'), open = +o[0] * 60 + +o[1], close = +c[0] * 60 + +c[1], earliest = Date.now() + cfg.minHoursAhead * 3600 * 1000, slots = [];
+        for (var s = open; s + dur <= close; s += cfg.slotMinutes) {
+          var t = new Date(d.getFullYear(), d.getMonth(), d.getDate(), 0, s).getTime();
+          slots.push({ time: pad(Math.floor(s / 60)) + ':' + pad(s % 60), free: t >= earliest });
+        }
+        return { status: 200, body: { ok: true, slots: slots } };
+      });
     }
     if (p === '/api/book' && opts.body) {
       var b = opts.body, id = (Date.now().toString(36) + Math.random().toString(36).slice(2, 6)).toUpperCase(), end = addMin(b.start, b.duration);
-      return formPost('reservering', { 'bot-field': '', reservering: id, type: TYPE_NAMES[b.type] || '', datum: longDate(b.date), datum_iso: b.date, start: b.start, eind: end, duur_minuten: b.duration, naam: b.name, email: b.email, telefoon: b.phone, opmerking: b.note, sleutelovereenkomst: b.keyAgree ? 'akkoord' : '' })
-        .then(function (r) {
-          if (!r.ok) return { status: 500, body: { ok: false, error: 'Versturen is niet gelukt. Probeer het later opnieuw of mail ons.' } };
-          return { status: 200, body: { ok: true, id: id, requested: true, mailSent: false, studioEmail: STATIC_CFG.studioEmail, summary: { type: TYPE_NAMES[b.type], room: '', date: longDate(b.date), start: b.start, end: end, duration: b.duration } } };
-        }).catch(function () { return { status: 500, body: { ok: false, error: 'Er is geen verbinding. Probeer het opnieuw.' } }; });
+      return loadCfg().then(function (cfg) {
+        return formPost('reservering', { 'bot-field': '', reservering: id, type: TYPE_NAMES[b.type] || '', datum: longDate(b.date), datum_iso: b.date, start: b.start, eind: end, duur_minuten: b.duration, naam: b.name, email: b.email, telefoon: b.phone, opmerking: b.note, sleutelovereenkomst: b.keyAgree ? 'akkoord' : '' }, cfg.studioEmail)
+          .then(function (r) {
+            if (!r.ok) return { status: 500, body: { ok: false, error: 'Versturen is niet gelukt. Probeer het later opnieuw of mail ons.' } };
+            return { status: 200, body: { ok: true, id: id, requested: true, mailSent: false, studioEmail: cfg.studioEmail, summary: { type: TYPE_NAMES[b.type], room: '', date: longDate(b.date), start: b.start, end: end, duration: b.duration } } };
+          });
+      }).catch(function () { return { status: 500, body: { ok: false, error: 'Er is geen verbinding. Probeer het opnieuw.' } }; });
     }
     if (p === '/api/early' && opts.body) {
-      return formPost('early-access', { 'bot-field': '', email: opts.body.email }).then(function (r) {
-        return r.ok ? { status: 200, body: { ok: true } } : { status: 500, body: { ok: false, error: 'Aanmelden is niet gelukt. Probeer het later opnieuw.' } };
+      return loadCfg().then(function (cfg) {
+        return formPost('early-access', { 'bot-field': '', email: opts.body.email }, cfg.studioEmail).then(function (r) {
+          return r.ok ? { status: 200, body: { ok: true } } : { status: 500, body: { ok: false, error: 'Aanmelden is niet gelukt. Probeer het later opnieuw.' } };
+        });
       }).catch(function () { return { status: 500, body: { ok: false, error: 'Er is geen verbinding. Probeer het opnieuw.' } }; });
     }
     return jsonRes(404, { ok: false, error: 'Niet beschikbaar.' });
@@ -65,8 +85,8 @@
   function buildMenu() {
     var foot = document.createElement('div'); foot.className = 'menu-foot';
     var lab = document.createElement('small'); lab.textContent = 'Bel of mail ons'; foot.appendChild(lab);
-    var tel = document.createElement('a'); tel.href = 'tel:+31626232734'; tel.textContent = '06 26232734'; foot.appendChild(tel);
-    var mail = document.createElement('a'); mail.href = 'mailto:studioklassiek.db@gmail.com'; mail.textContent = 'studioklassiek.db@gmail.com'; foot.appendChild(mail);
+    var tel = document.createElement('a'); tel.setAttribute('data-c-tel', ''); tel.href = 'tel:+31626232734'; tel.textContent = '06 26232734'; foot.appendChild(tel);
+    var mail = document.createElement('a'); mail.setAttribute('data-c-mail', ''); mail.href = 'mailto:studioklassiek.db@gmail.com'; mail.textContent = 'studioklassiek.db@gmail.com'; foot.appendChild(mail);
     menu.appendChild(foot);
     backdrop = document.createElement('div'); backdrop.className = 'menu-backdrop'; backdrop.hidden = true;
     document.body.appendChild(backdrop);
