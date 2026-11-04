@@ -433,3 +433,16 @@ dd.todo { justify-self: start; }
 .dur-label { margin: 18px 0 0; }
 .soon-alt { margin: 14px 0 0; font-size: .95rem; }
 @media (max-width: 700px) { .foot-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .foot-grid a { overflow-wrap: anywhere; } }
+
+/* Sleutelovereenkomst: alleen zichtbaar in het boekingsformulier */
+.key-agreement { margin: 8px 0 14px; border: 1px solid var(--line); background: rgba(254, 247, 223, .04); }
+.key-agreement summary { cursor: pointer; list-style: none; padding: 16px 44px 16px 18px; position: relative; font-weight: 600; }
+.key-agreement summary::-webkit-details-marker { display: none; }
+.key-agreement summary::after { content: "+"; position: absolute; right: 16px; top: 50%; transform: translateY(-50%); font: 300 1.6rem var(--sans); color: var(--gold-lt); transition: transform .3s; }
+.key-agreement[open] summary::after { transform: translateY(-50%) rotate(45deg); }
+.key-body { max-height: 340px; overflow-y: auto; padding: 4px 18px 18px; border-top: 1px solid var(--line); -webkit-overflow-scrolling: touch; }
+.key-body h2 { font: 600 1rem var(--sans); letter-spacing: 0; margin: 22px 0 8px; }
+.key-body p, .key-body li { color: var(--soft); font-size: .95rem; margin: 0 0 10px; }
+.key-body .callout { margin: 14px 0 4px; padding: 2px 16px 8px; }
+.key-body .callout h2 { margin-top: 12px; }
+.key-body .callout p { color: var(--cream); }

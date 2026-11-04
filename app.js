@@ -46,10 +46,11 @@
     else if (!/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(f.email.value.trim())) bad = f.email;
     else if (!/^[0-9+\-\s()]{6,25}$/.test(f.phone.value.trim())) bad = f.phone;
     if (bad) { bad.classList.add('invalid'); bad.focus(); return showError('Controleer je ' + (bad === f.name ? 'naam' : bad === f.email ? 'e-mailadres' : 'telefoonnummer') + '.'); }
+    if (!f.keyAgree.checked) return showError('Lees en accepteer de sleutelovereenkomst om door te gaan.');
     if (!f.consent.checked) return showError('Ga akkoord met het gebruik van je gegevens om door te gaan.');
 
     var btn = $('#submitBtn'); btn.disabled = true;
-    var payload = { type: val('type'), duration: +val('duration'), date: s.date, start: s.start, name: f.name.value.trim(), email: f.email.value.trim(), phone: f.phone.value.trim(), note: f.note.value.trim(), consent: f.consent.checked };
+    var payload = { type: val('type'), duration: +val('duration'), date: s.date, start: s.start, name: f.name.value.trim(), email: f.email.value.trim(), phone: f.phone.value.trim(), note: f.note.value.trim(), consent: f.consent.checked, keyAgree: f.keyAgree.checked };
     SK.api('/api/book', { body: payload }).then(function (res) {
       btn.disabled = false;
       if (!res.body.ok) { showError(res.body.error || 'Reserveren is niet gelukt.'); if (res.status === 409) cal.reload(true); return; }

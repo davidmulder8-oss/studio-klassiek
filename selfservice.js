@@ -58,6 +58,7 @@
     g.appendChild(el('p', 'soft', 'Ingelogd als ' + state.user.name + ' (' + state.user.email + ').'));
     var lab = el('label', 'field-one', 'Opmerking (optioneel)');
     var ta = el('textarea'); ta.id = 'note'; ta.rows = 2; ta.maxLength = 500; lab.appendChild(ta); g.appendChild(lab);
+    var kc = el('label', 'check'); var kin = el('input'); kin.type = 'checkbox'; kin.id = 'keyAgree'; var ksp = el('span', '', 'Ik heb de sleutelovereenkomst gelezen en ga akkoord.'); kc.appendChild(kin); kc.appendChild(ksp); g.appendChild(kc);
     var btn = arrowBtn('Studio reserveren'); btn.type = 'button'; btn.id = 'submitBtn';
     btn.addEventListener('click', submit); g.appendChild(btn);
   }
@@ -66,11 +67,12 @@
     showError('');
     var s = cal.state;
     if (!state.roomId) return showError('Kies een studio.');
+    if (!($('#keyAgree') || {}).checked) return showError('Lees en accepteer de sleutelovereenkomst om door te gaan.');
     if (!s.date) return showError('Kies een dag.');
     if (!s.start) return showError('Kies een tijdstip.');
     var btn = $('#submitBtn'); btn.disabled = true;
     var note = ($('#note') || { value: '' }).value.trim();
-    SK.api('/api/zelf/book', { body: { room: state.roomId, date: s.date, start: s.start, duration: duration(), note: note } }).then(function (res) {
+    SK.api('/api/zelf/book', { body: { room: state.roomId, date: s.date, start: s.start, duration: duration(), note: note, keyAgree: true } }).then(function (res) {
       btn.disabled = false;
       if (!res.body.ok) {
         if (res.status === 401) { state.user = null; renderGate(); }

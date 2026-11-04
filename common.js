@@ -46,7 +46,7 @@
     }
     if (p === '/api/book' && opts.body) {
       var b = opts.body, id = (Date.now().toString(36) + Math.random().toString(36).slice(2, 6)).toUpperCase(), end = addMin(b.start, b.duration);
-      return formPost('reservering', { 'bot-field': '', reservering: id, type: TYPE_NAMES[b.type] || '', datum: longDate(b.date), datum_iso: b.date, start: b.start, eind: end, duur_minuten: b.duration, naam: b.name, email: b.email, telefoon: b.phone, opmerking: b.note })
+      return formPost('reservering', { 'bot-field': '', reservering: id, type: TYPE_NAMES[b.type] || '', datum: longDate(b.date), datum_iso: b.date, start: b.start, eind: end, duur_minuten: b.duration, naam: b.name, email: b.email, telefoon: b.phone, opmerking: b.note, sleutelovereenkomst: b.keyAgree ? 'akkoord' : '' })
         .then(function (r) {
           if (!r.ok) return { status: 500, body: { ok: false, error: 'Versturen is niet gelukt. Probeer het later opnieuw of mail ons.' } };
           return { status: 200, body: { ok: true, id: id, requested: true, mailSent: false, studioEmail: STATIC_CFG.studioEmail, summary: { type: TYPE_NAMES[b.type], room: '', date: longDate(b.date), start: b.start, end: end, duration: b.duration } } };
