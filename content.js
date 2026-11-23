@@ -22,7 +22,34 @@
     });
   }
   function filled(v) { return v != null && String(v).trim() !== ''; }
-  function setText(el, v) { el.textContent = v; el.classList.remove('todo', 'todo-block'); }
+  function setText(el, v) { el.textContent = v; el.hidden = false; el.classList.remove('todo', 'todo-block'); }
+
+  /* Velden die nog niet zijn ingevuld tonen we niet: ze verschijnen vanzelf zodra er iets staat */
+  function hideEmpty() {
+    document.querySelectorAll('.info dd, .facts-list dd').forEach(function (dd) {
+      var row = dd.parentNode;
+      if (row && row.tagName === 'DIV') row.hidden = dd.classList.contains('todo');
+    });
+    document.querySelectorAll('.facts-list').forEach(function (l) { l.hidden = !l.querySelector('div:not([hidden])'); });
+    document.querySelectorAll('.person').forEach(function (p) {
+      var note = p.querySelector('.todo-block'); if (note) note.hidden = true;
+      p.hidden = !!p.querySelector('h3 .todo');
+    });
+    var team = document.getElementById('team');
+    if (team) team.hidden = !team.querySelector('.person:not([hidden])');
+    document.querySelectorAll('.st-open').forEach(function (s) {
+      s.hidden = s.parentNode.classList.contains('is-open') || !!s.querySelector('[data-st-date].todo');
+    });
+  }
+  function hideEmptyGallery() {
+    var s = document.getElementById('studio');
+    if (!s) return;
+    var any = !!s.querySelector('.ph:not(.missing)');
+    s.hidden = !any;
+    document.querySelectorAll('a[href$="#studio"]').forEach(function (a) { a.hidden = !any; });
+  }
+  hideEmpty();
+  if (document.readyState === 'complete') hideEmptyGallery(); else window.addEventListener('load', hideEmptyGallery);
 
   function apply(c) {
     document.querySelectorAll('[data-c]').forEach(function (el) {
@@ -70,6 +97,6 @@
 
   fetch('content.json', { cache: 'no-cache' })
     .then(function (r) { return r.ok ? r.json() : null; })
-    .then(function (c) { if (c) { window.SK_CONTENT = c; apply(c); } })
+    .then(function (c) { if (c) { window.SK_CONTENT = c; apply(c); hideEmpty(); } })
     .catch(function () { /* geen content.json: de standaardtekst blijft staan */ });
 })();
