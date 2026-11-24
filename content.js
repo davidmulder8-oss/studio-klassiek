@@ -50,6 +50,13 @@
       var v = get(c, el.getAttribute('data-price'));
       if (filled(v) && !isNaN(Number(v))) el.textContent = money(v);
     });
+    document.querySelectorAll('[data-per]').forEach(function (el) {
+      var spec = el.getAttribute('data-per').split(':'), v = get(c, spec[0]), n = Number(spec[1]);
+      if (filled(v) && !isNaN(Number(v)) && n > 0) {
+        var one = Math.round(Number(v) / n * 100) / 100;
+        el.textContent = '€ ' + (one % 1 ? one.toLocaleString('nl-NL', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) : one.toLocaleString('nl-NL')) + ' per les';
+      }
+    });
     var ct = c.contact || {};
     document.querySelectorAll('[data-c-mail]').forEach(function (el) {
       if (filled(ct.email)) { el.href = 'mailto:' + ct.email; el.textContent = ct.email; }

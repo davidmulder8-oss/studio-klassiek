@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://formsubmit.co; frame-src https://www.google.com; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lespakketten | Studio Klassiek</title>
+<link rel="icon" href="favicon.ico">
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="inner">
+
+<a class="skip" href="#main">Naar de inhoud</a>
+
+<header class="site-header">
+  <a class="brand" href="index.html" aria-label="Studio Klassiek, naar de startpagina">
+    <img src="assets/logo-cream.png" width="657" height="285" alt="Studio Klassiek">
+  </a>
+  <div class="head-actions">
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="menu" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<nav class="menu" id="menu" aria-label="Hoofdmenu" hidden>
+  <a href="self-service.html"><span class="m-text"><span class="m-label">Studio huren</span><small>DJ-studio en Produce-studio per 30 minuten</small></span></a>
+  <a href="pakketten.html"><span class="m-text"><span class="m-label">Pakketten</span><small>DJ- of Produce-lessen, 5 of 10 per pakket</small></span></a>
+  <a href="lessen-boeken.html"><span class="m-text"><span class="m-label">Lessen boeken</span><small>Een les of een kennismaking aanvragen</small></span></a>
+  <a href="index.html#studio"><span class="m-text"><span class="m-label">De studio</span><small>De ruimtes en de apparatuur</small></span></a>
+</nav>
+
+<main id="main" class="page">
+
+<section class="block wide pk-head">
+  <p class="eyebrow">Lespakketten</p>
+  <h1 class="pk-title">Kies je pakket.<br><em>Begin waar jij staat.</em></h1>
+  <p class="intro">Vijf of tien lessen, met een USB-stick met muziek erbij. Geen ervaring nodig.</p>
+  <a class="btn" href="lessen-boeken.html"><span>Les of kennismaking aanvragen</span><i class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></a>
+</section>
+
+<section class="block wide pk-section" id="pakketten">
+  <div class="seg" role="tablist" aria-label="Kies je richting">
+    <button type="button" role="tab" id="tab-dj" aria-selected="true" aria-controls="pk-dj">DJ-lessen</button>
+    <button type="button" role="tab" id="tab-produce" aria-selected="false" aria-controls="pk-produce" tabindex="-1">Produce-lessen</button>
+  </div>
+
+  <div class="pk-grid" id="pk-dj" role="tabpanel" aria-labelledby="tab-dj">
+    <article class="pk">
+      <header><h2>5 lessen</h2><p class="pk-tag">Je beatmatcht zelf</p></header>
+      <p class="pk-price" data-price="lessons.dj.price5">€ 600</p>
+      <p class="pk-per" data-per="lessons.dj.price5:5">€ 120 per les</p>
+      <ul class="pk-list">
+        <li>5 lessen op een Pioneer XDJ-AZ</li>
+        <li>Beatmatchen, mixen en effecten</li>
+        <li>Kies je eigen genre</li>
+        <li>USB-stick met muziek</li>
+      </ul>
+      <a class="btn alt" href="lessen-boeken.html"><span>Les aanvragen</span><i class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></a>
+      <p class="pk-fine">Een aanvraag, je betaalt nu niets</p>
+    </article>
+    <article class="pk is-best">
+      <span class="pk-badge">Voordeligst per les</span>
+      <header><h2>10 lessen</h2><p class="pk-tag">Je bouwt een eigen set</p></header>
+      <p class="pk-price" data-price="lessons.dj.price10">€ 1.050</p>
+      <p class="pk-per" data-per="lessons.dj.price10:10">€ 105 per les</p>
+      <ul class="pk-list">
+        <li>10 lessen op een Pioneer XDJ-AZ</li>
+        <li>Muziek selecteren en een eigen set opbouwen</li>
+        <li>Kies je eigen genre</li>
+        <li>USB-stick met muziek</li>
+      </ul>
+      <a class="btn" href="lessen-boeken.html"><span>Les aanvragen</span><i class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></a>
+      <p class="pk-fine">Een aanvraag, je betaalt nu niets</p>
+    </article>
+    <article class="pk pk-try">
+      <header><h2>Kennismaking</h2><p class="pk-tag">Twijfel je? Begin hier.</p></header>
+      <p class="pk-price pk-text">Eerst proberen</p>
+      <p class="pk-per">Zonder pakket te kiezen</p>
+      <ul class="pk-list">
+        <li>Bekijk de studio</li>
+        <li>Bespreek welk pakket bij je past</li>
+        <li>Geen ervaring nodig</li>
+      </ul>
+      <a class="btn alt" href="lessen-boeken.html"><span>Kennismaking aanvragen</span><i class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></a>
+      <p class="pk-fine">Een aanvraag, je betaalt nu niets</p>
+    </article>
+  </div>
+
+  <div class="pk-grid" id="pk-produce" role="tabpanel" aria-labelledby="tab-produce" hidden>
+    <article class="pk">
+      <header><h2>5 lessen</h2><p class="pk-tag">Je bouwt een arrangement</p></header>
+      <p class="pk-price" data-price="lessons.produce.price5">€ 875</p>
+      <p class="pk-per" data-per="lessons.produce.price5:5">€ 175 per les</p>
+      <ul class="pk-list">
+        <li>5 lessen in de Produce-studio</li>
+        <li>Beats, melodieën en arrangementen</li>
+        <li>Effecten gebruiken</li>
+        <li>USB-stick met muziek</li>
+      </ul>
+      <a class="btn alt" href="lessen-boeken.html"><span>Les aanvragen</span><i class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></a>
+      <p class="pk-fine">Een aanvraag, je betaalt nu niets</p>
+    </article>
+    <article class="pk is-best">
+      <span class="pk-badge">Voordeligst per les</span>
+      <header><h2>10 lessen</h2><p class="pk-tag">Je mixt een complete track</p></header>
+      <p class="pk-price" data-price="lessons.produce.price10">€ 1.500</p>
+      <p class="pk-per" data-per="lessons.produce.price10:10">€ 150 per les</p>
+      <ul class="pk-list">
+        <li>10 lessen in de Produce-studio</li>
+        <li>Vocals opnemen in de vocal booth</li>
+        <li>Je track afmixen tot een complete productie</li>
+        <li>USB-stick met muziek</li>
+      </ul>
+      <a class="btn" href="lessen-boeken.html"><span>Les aanvragen</span><i class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></a>
+      <p class="pk-fine">Een aanvraag, je betaalt nu niets</p>
+    </article>
+    <article class="pk pk-try">
+      <header><h2>Kennismaking</h2><p class="pk-tag">Twijfel je? Begin hier.</p></header>
+      <p class="pk-price pk-text">Eerst proberen</p>
+      <p class="pk-per">Zonder pakket te kiezen</p>
+      <ul class="pk-list">
+        <li>Bekijk de studio</li>
+        <li>Bespreek welk pakket bij je past</li>
+        <li>Geen ervaring nodig</li>
+      </ul>
+      <a class="btn alt" href="lessen-boeken.html"><span>Kennismaking aanvragen</span><i class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></a>
+      <p class="pk-fine">Een aanvraag, je betaalt nu niets</p>
+    </article>
+  </div>
+</section>
+
+<section class="block wide" id="voordelen">
+  <p class="eyebrow">Bij elk pakket</p>
+  <h2>Wat je krijgt</h2>
+  <div class="vo-grid">
+    <div class="vo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4v16M12 4v16M19 4v16"/><rect x="3" y="13" width="4" height="3"/><rect x="10" y="7" width="4" height="3"/><rect x="17" y="11" width="4" height="3"/></svg><h3>Echte apparatuur</h3><p>Pioneer XDJ-AZ, EVE Audio-monitoren en een Audient iD14 MKII.</p></div>
+    <div class="vo"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/></svg><h3>Ervaren docenten</h3><p>Les van ervaren DJ's en producers.</p></div>
+    <div class="vo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18V6l10-2v12"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="16.5" cy="16" r="2.5"/></svg><h3>Jouw genre</h3><p>Kies zelf of het house, techno, hiphop of Nederlandstalig wordt.</p></div>
+    <div class="vo"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3 2"/></svg><h3>In jouw tempo</h3><p>Geen ervaring nodig. We beginnen waar jij staat.</p></div>
+    <div class="vo"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="2" width="8" height="13" rx="1"/><path d="M10 15v6h4v-6M11 6h2"/></svg><h3>Een USB-stick mee</h3><p>Met muziek om thuis verder te oefenen.</p></div>
+    <div class="vo"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg><h3>Misschien het podium op</h3><p>We hebben contacten met cafés en clubs. Gegarandeerd is het niet.</p></div>
+  </div>
+</section>
+
+<section class="block wide" id="faq">
+  <h2>Veelgestelde vragen</h2>
+  <div class="faq" data-faq="home">
+    <details><summary>Moet ik al kunnen draaien of produceren?</summary><p>Nee. Je kunt beginnen met een les en doorgroeien tot zelf een studio huren. Voor beginners en gevorderden, jong en oud.</p></details>
+    <details><summary>Wat kost het?</summary><p>Zie de pakketten hierboven. Het tarief voor studio huren volgt.</p></details>
+  </div>
+  <p class="note"><a class="textlink" href="faq.html">Alle vragen</a></p>
+</section>
+
+<section class="cta-band">
+  <h2>Klaar voor je eerste les?</h2>
+  <div class="cta-actions">
+    <a class="btn" href="lessen-boeken.html"><span>Les of kennismaking aanvragen</span><i class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></a>
+    <a class="btn alt" href="self-service.html"><span>Huur een studio</span><i class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></a>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer big">
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <img src="assets/logo-cream.png" width="657" height="285" alt="Studio Klassiek">
+      <p>Draai. Produceer. Groei.</p>
+    </div>
+    <nav aria-label="Footer menu">
+      <h4>Menu</h4>
+      <a href="index.html">Home</a>
+      <a href="self-service.html">Studio huren</a>
+      <a href="index.html#lessen">Lessen</a>
+      <a href="pakketten.html">Pakketten</a>
+      <a href="faq.html">FAQ</a>
+    </nav>
+    <nav aria-label="Meer">
+      <h4>Meer</h4>
+      <a href="index.html#early">Houd me op de hoogte</a>
+    </nav>
+    <nav aria-label="Juridisch">
+      <h4>Juridisch</h4>
+      <a href="privacy.html">Privacybeleid</a>
+      <a href="voorwaarden.html">Algemene voorwaarden</a>
+      <a href="boekingsvoorwaarden.html">Boekingsvoorwaarden</a>
+    </nav>
+    <div>
+      <h4>Contact</h4>
+      <a data-c-mail href="mailto:studioklassiek.db@gmail.com">studioklassiek.db@gmail.com</a>
+      <a data-c-tel href="tel:+31626232734">06 26232734</a>
+    </div>
+  </div>
+  <p class="copy">&copy; 2026 Studio Klassiek</p>
+</footer>
+
+<script src="common.js"></script>
+<script src="content.js"></script>
+<script src="home.js"></script>
+</body>
+</html>
