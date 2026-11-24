@@ -554,19 +554,6 @@ main > .block + .block { border-top: 1px solid var(--line); }
 /* ===== Meer beeld, minder tekst: genre-lint, tabs, groot statement, zwiepbare galerij ===== */
 .hero .lead { margin-bottom: 44px; }
 
-.ticker { overflow: hidden; padding: 28px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--bg); }
-.ticker-track { display: flex; width: max-content; animation: ticker 52s linear infinite; }
-.ticker-track:hover { animation-play-state: paused; }
-.tg { display: flex; align-items: center; flex: none; }
-.tg span { padding: 0 .55em; font-family: var(--serif); font-size: clamp(2rem, 5.2vw, 3.75rem); line-height: 1; white-space: nowrap; color: rgba(254, 247, 223, .86); }
-.tg i { flex: none; width: 8px; height: 8px; background: var(--gold); transform: rotate(45deg); }
-@keyframes ticker { to { transform: translateX(-50%); } }
-@media (prefers-reduced-motion: reduce) {
-  .ticker { padding-left: var(--gutter); padding-right: var(--gutter); }
-  .ticker-track { width: auto; flex-wrap: wrap; justify-content: center; }
-  .tg.dup { display: none; }
-  .tg { flex-wrap: wrap; justify-content: center; row-gap: 12px; }
-}
 
 .seg { display: inline-flex; margin: 0 0 32px; border: 1px solid var(--line-strong); }
 .seg button { padding: 16px 28px; border: 0; background: transparent; color: var(--soft); font: 500 1rem var(--sans); cursor: pointer; transition: background-color .3s var(--ease), color .3s var(--ease); }
