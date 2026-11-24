@@ -667,3 +667,22 @@ main > .block + .block { border-top: 1px solid var(--line); }
 .gallery-wrap.no-scroll .g-nav { display: none; }
 @media (max-width: 760px) { .g-nav { display: none; } }
 
+
+/* ===== Extra pagina's: studio, over ons, contact ===== */
+.studio-row { display: grid; grid-template-columns: 1.15fr 1fr; gap: clamp(28px, 5vw, 72px); align-items: center; padding-top: clamp(40px, 6vw, 80px); }
+.studio-row.flip .ph { order: 2; }
+.studio-row .ph { margin: 0; aspect-ratio: 4 / 3; }
+.studio-body { display: grid; gap: 16px; align-content: center; }
+.studio-body h2 { margin: 0; }
+.studio-body p { margin: 0; }
+.studio-body .pk-list { padding-top: 16px; margin-top: 4px; }
+@media (max-width: 900px) { .studio-row { grid-template-columns: 1fr; } .studio-row.flip .ph { order: 0; } }
+
+/* ===== Inloggen met Google of Facebook ===== */
+.social { display: grid; gap: 12px; margin: 0 0 28px; }
+.social .btn { align-items: center; justify-content: flex-start; gap: 16px; width: 100%; padding-left: 24px; }
+.social .btn svg { width: 20px; height: 20px; fill: currentColor; stroke: none; flex: none; }
+.social .btn span { flex: 1; padding: 20px 28px 20px 0; text-align: left; }
+.or { display: flex; align-items: center; gap: 16px; margin: 0 0 24px; color: var(--soft); font-size: .875rem; }
+.or::before, .or::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+.auth-note { margin: 20px 0 0; color: var(--soft); font-size: .875rem; }
