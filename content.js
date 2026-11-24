@@ -43,7 +43,15 @@
   }
   function hideEmptyGallery() {
     var s = document.getElementById('studio');
-    if (!s) return;
+    if (!s) {
+      /* andere pagina's: toon de menuregel alleen als de hoofdfoto van de studio bestaat */
+      var links = document.querySelectorAll('a[href$="#studio"]');
+      links.forEach(function (a) { a.hidden = true; });
+      var probe = new Image();
+      probe.onload = function () { links.forEach(function (a) { a.hidden = false; }); };
+      probe.src = 'assets/foto/studio-1.jpg';
+      return;
+    }
     var any = !!s.querySelector('.ph:not(.missing)');
     s.hidden = !any;
     document.querySelectorAll('a[href$="#studio"]').forEach(function (a) { a.hidden = !any; });

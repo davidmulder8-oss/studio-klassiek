@@ -98,7 +98,7 @@
     document.documentElement.classList.toggle('menu-open', open && mq.matches);
     if (open) {
       menu.hidden = false; backdrop.hidden = false;
-      requestAnimationFrame(function () { requestAnimationFrame(function () { menu.classList.add('open'); backdrop.classList.add('open'); }); });
+      requestAnimationFrame(function () { requestAnimationFrame(function () { menu.classList.add('open'); backdrop.classList.add('open'); var first = menu.querySelector(':scope > a:not([hidden])'); if (first) first.focus({ preventScroll: true }); }); });
     } else {
       menu.classList.remove('open'); backdrop.classList.remove('open');
       closeTimer = setTimeout(function () { menu.hidden = true; backdrop.hidden = true; }, 280);
@@ -106,6 +106,8 @@
   }
   if (burger && menu) {
     buildMenu();
+    var here = location.pathname.split('/').pop() || 'index.html';
+    menu.querySelectorAll(':scope > a').forEach(function (a) { var f = a.getAttribute('href').split('#')[0]; if (f && f !== 'index.html' && f === here) a.setAttribute('aria-current', 'page'); });
     burger.addEventListener('click', function () { setMenu(!menu.classList.contains('open')); });
     menu.addEventListener('click', function (e) { if (e.target.closest('a')) setMenu(false); });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && menu.classList.contains('open')) { setMenu(false); burger.focus(); } });
@@ -127,7 +129,7 @@
   me.then(function (data) {
     document.querySelectorAll('[data-account]').forEach(function (a) {
       a.setAttribute('aria-label', data.user ? 'Mijn account' : 'Inloggen');
-      if (a.dataset.account === 'text') a.textContent = data.user ? 'Mijn account' : 'Account';
+      if (a.dataset.account === 'text') (a.querySelector('.m-label') || a).textContent = data.user ? 'Mijn account' : 'Account';
       if (data.user) a.classList.add('is-in');
     });
   });
