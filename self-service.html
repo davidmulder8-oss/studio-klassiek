@@ -34,6 +34,20 @@
     <h1 class="page-title">Studio huren</h1>
     <p class="intro">Werk zelf, zonder docent, in de DJ-studio of de Produce-studio in Den Bosch. Kies je studio, een dag en een tijd. Vanaf 30 minuten.</p>
 
+    <div class="wheel-wrap">
+      <button class="wheel" id="wheel" type="button" aria-pressed="false" aria-label="Laat de wiel draaien">
+        <span class="w-ring"></span>
+        <svg class="w-ticks" id="wheelTicks" viewBox="0 0 100 100" aria-hidden="true"></svg>
+        <span class="w-bezel"></span>
+        <span class="platter">
+          <span class="mark m1"><i></i></span><span class="mark m2"><i></i></span><span class="mark m3"><i></i></span><span class="mark m4"><i></i></span>
+          <span class="label"><img src="assets/logo-cream.png" width="657" height="285" alt=""></span>
+        </span>
+        <span class="w-sheen"></span>
+        <span class="w-spindle"></span>
+      </button>
+      <p class="wheel-hint"><span class="wheel-light" aria-hidden="true"></span><span id="wheelHint">Tik op de wiel om te draaien</span></p>
+    </div>
     <section class="soon-box" aria-labelledby="soonTitle">
       <h2 id="soonTitle">De studio's openen binnenkort</h2>
       <p>Verwachte opening: <span class="todo" id="openingDate">datum volgt</span>. Laat je e-mailadres achter en je hoort als eerste wanneer je kunt boeken.</p>
@@ -171,5 +185,6 @@
 <script src="content.js"></script>
 <script src="selfservice.js"></script>
 <script src="early.js"></script>
+<script src="wheel.js"></script>
 </body>
 </html>
