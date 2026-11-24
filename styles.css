@@ -550,3 +550,60 @@ main > .block + .block { border-top: 1px solid var(--line); }
 .route .arrow { width: 52px; }
 .hero { padding-bottom: calc(clamp(168px, 26vh, 260px) + 40px); }
 @media (max-width: 560px) { .routes { gap: 16px; } .hero .small { margin-bottom: 36px; } }
+
+/* ===== Meer beeld, minder tekst: genre-lint, tabs, groot statement, zwiepbare galerij ===== */
+.hero .lead { margin-bottom: 44px; }
+
+.ticker { overflow: hidden; padding: 28px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--bg); }
+.ticker-track { display: flex; width: max-content; animation: ticker 52s linear infinite; }
+.ticker-track:hover { animation-play-state: paused; }
+.tg { display: flex; align-items: center; flex: none; }
+.tg span { padding: 0 .55em; font-family: var(--serif); font-size: clamp(2rem, 5.2vw, 3.75rem); line-height: 1; white-space: nowrap; color: rgba(254, 247, 223, .86); }
+.tg i { flex: none; width: 8px; height: 8px; background: var(--gold); transform: rotate(45deg); }
+@keyframes ticker { to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) {
+  .ticker { padding-left: var(--gutter); padding-right: var(--gutter); }
+  .ticker-track { width: auto; flex-wrap: wrap; justify-content: center; }
+  .tg.dup { display: none; }
+  .tg { flex-wrap: wrap; justify-content: center; row-gap: 12px; }
+}
+
+.seg { display: inline-flex; margin: 0 0 32px; border: 1px solid var(--line-strong); }
+.seg button { padding: 16px 28px; border: 0; background: transparent; color: var(--soft); font: 500 1rem var(--sans); cursor: pointer; transition: background-color .3s var(--ease), color .3s var(--ease); }
+.seg button + button { border-left: 1px solid var(--line-strong); }
+.seg button:hover { color: var(--cream); }
+.seg button[aria-selected="true"] { background: var(--cream); color: var(--wine); }
+.seg button:focus-visible { outline: 2px solid var(--gold-lt); outline-offset: -6px; }
+.course[hidden] { display: none; }
+.course:first-of-type { border-top: 0; padding-top: 0; }
+@media (max-width: 560px) { .seg { display: flex; } .seg button { flex: 1; padding: 16px 12px; } }
+
+.statement { padding: clamp(80px, 13vw, 168px) var(--gutter); text-align: center; border-top: 1px solid var(--line); }
+.statement p { margin: 0; font-family: var(--serif); font-weight: 400; font-size: clamp(2.5rem, 8.5vw, 7rem); line-height: 1.05; letter-spacing: -.02em; color: var(--cream); }
+
+#studio .gallery { display: flex; gap: 16px; overflow-x: auto; padding: 0 var(--gutter) 24px 0; margin-right: calc(var(--gutter) * -1); scroll-snap-type: x mandatory; scrollbar-width: thin; scrollbar-color: var(--line-strong) transparent; -webkit-overflow-scrolling: touch; }
+#studio .gallery .ph { flex: 0 0 min(78vw, 400px); height: auto; aspect-ratio: 4 / 5; scroll-snap-align: start; }
+#studio .gallery .ph.g-big { flex-basis: min(88vw, 760px); aspect-ratio: 16 / 10; }
+
+.steps li { position: relative; }
+.steps svg { position: absolute; right: 0; top: 20px; width: 28px; height: 28px; fill: none; stroke: var(--soft); stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+
+.loc-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 40px; align-items: stretch; }
+.loc-grid .map { margin: 0; aspect-ratio: auto; min-height: 340px; }
+.loc-grid .info { align-content: start; }
+@media (max-width: 800px) { .loc-grid { grid-template-columns: 1fr; gap: 24px; } .loc-grid .map { aspect-ratio: 4 / 3; min-height: 0; } }
+
+/* Breder en compacter: minder scrollen, meer overzicht */
+#huren .offer .ph { aspect-ratio: 3 / 2; }
+#faq .faq[data-faq] { display: grid; grid-template-columns: 1fr 1fr; column-gap: 56px; align-items: start; }
+#faq .faq[data-faq] details { border-bottom: 1px solid var(--line); }
+#faq .faq[data-faq] details:last-child { border-bottom: 1px solid var(--line); }
+#faq .faq[data-faq] details:nth-child(-n+2) { border-top: 1px solid var(--line); }
+#faq .faq[data-faq] details:nth-child(n+3) { border-top: 0; }
+@media (max-width: 800px) { #faq .faq[data-faq] { grid-template-columns: 1fr; } #faq .faq[data-faq] details:nth-child(n) { border-top: 0; } #faq .faq[data-faq] details:first-child { border-top: 1px solid var(--line); } }
+
+#team .team { gap: 40px 56px; }
+#team .person { display: grid; grid-template-columns: 180px 1fr; gap: 8px 28px; align-items: start; }
+#team .person .portrait { grid-row: span 3; margin: 0; aspect-ratio: 4 / 5; }
+#team .person h3, #team .person .role, #team .person p { grid-column: 2; }
+@media (max-width: 760px) { #team .team { grid-template-columns: 1fr; gap: 28px; } #team .person { grid-template-columns: 120px 1fr; gap: 8px 20px; } }

@@ -49,7 +49,6 @@
   <div class="hero-inner">
     <h1><span data-c="home.line1">Jouw studio.</span><br><em data-c="home.line2">Jouw sound.</em></h1>
     <p class="lead" data-c="home.lead">Die track in je hoofd verdient een echte studio. Zet je koptelefoon op, de rest staat al klaar.</p>
-    <p class="small" data-c="home.small">Draai. Produceer. Groei.</p>
     <div class="routes">
       <a class="route" href="#huren">
         <small>Kun je al draaien of produceren?</small>
@@ -62,9 +61,16 @@
     </div>
   </div>
 </section>
+<!-- GENRES -->
+<div class="ticker" role="group" aria-label="Genres: house, techno, techhouse, R&amp;B, hiphop, disco, classics en Nederlandstalig">
+  <div class="ticker-track" aria-hidden="true">
+    <div class="tg"><span>House</span><i></i><span>Techno</span><i></i><span>Techhouse</span><i></i><span>R&amp;B</span><i></i><span>Hiphop</span><i></i><span>Disco</span><i></i><span>Classics</span><i></i><span>Nederlandstalig</span><i></i></div>
+    <div class="tg dup"><span>House</span><i></i><span>Techno</span><i></i><span>Techhouse</span><i></i><span>R&amp;B</span><i></i><span>Hiphop</span><i></i><span>Disco</span><i></i><span>Classics</span><i></i><span>Nederlandstalig</span><i></i></div>
+  </div>
+</div>
 
 <!-- 2. AANBOD: STUDIO HUREN -->
-<section class="block" id="huren">
+<section class="block wide" id="huren">
   <p class="eyebrow">Voor wie al draait of produceert</p>
   <h2>Studio huren</h2>
   <p class="intro">Werk zelf, zonder docent. Kies je studio, dag en tijd, vanaf 30 minuten.</p>
@@ -107,12 +113,16 @@
 </section>
 
 <!-- 2. AANBOD: LESSEN -->
-<section class="block" id="lessen">
+<section class="block wide" id="lessen">
   <p class="eyebrow">Voor wie het wil leren</p>
   <h2>Lessen</h2>
   <p class="intro">Geen ervaring nodig. Je begint waar jij staat en werkt toe naar iets wat je echt kunt laten horen. Je krijgt een USB-stick met muziek mee.</p>
 
-  <article class="course">
+    <div class="seg" role="tablist" aria-label="Kies een les">
+    <button type="button" role="tab" id="tab-dj" aria-selected="true" aria-controls="course-dj">DJ-lessen</button>
+    <button type="button" role="tab" id="tab-produce" aria-selected="false" aria-controls="course-produce" tabindex="-1">Produce-lessen</button>
+  </div>
+  <article class="course" id="course-dj" role="tabpanel" aria-labelledby="tab-dj">
     <div class="course-head">
       <h3>DJ-lessen</h3>
       <p class="course-sub">Van je eerste overgang naar je eigen set.</p>
@@ -122,7 +132,6 @@
       <li><b>Na 5 lessen</b><span>Je beatmatcht zelf, maakt vloeiende overgangen en gebruikt effecten met gevoel.</span></li>
       <li><b>Na 10 lessen</b><span>Je selecteert je muziek en bouwt een eigen set op in jouw genre, klaar om te laten horen.</span></li>
     </ol>
-    <p class="genres">Kies je genre: house, techno, techhouse, R&amp;B, hiphop, disco, classics of Nederlandstalig.</p>
     <div class="course-foot">
       <dl class="price">
         <div><dt>5 lessen</dt><dd data-price="lessons.dj.price5">€ 600</dd></div>
@@ -136,7 +145,7 @@
     </div>
   </article>
 
-  <article class="course">
+  <article class="course" id="course-produce" role="tabpanel" aria-labelledby="tab-produce" hidden>
     <div class="course-head">
       <h3>Produce-lessen</h3>
       <p class="course-sub">Van een eerste idee naar een uitgewerkte track.</p>
@@ -163,6 +172,10 @@
   <a class="btn" href="lessen-boeken.html"><span>Les of kennismaking aanvragen</span><i class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></a>
 </section>
 
+<!-- SLOGAN -->
+<section class="statement" aria-label="Slogan">
+  <p data-c="home.small">Draai. Produceer. Groei.</p>
+</section>
 <!-- 3. DE RUIMTES EN APPARATUUR -->
 <section class="block wide" id="studio">
   <p class="eyebrow">Binnenkijken</p>
@@ -192,18 +205,18 @@
 </section>
 
 <!-- 4. ZO WERKT HET -->
-<section class="block" id="werkwijze">
+<section class="block wide" id="werkwijze">
   <h2>Zo werkt het</h2>
   <ol class="steps">
-    <li><b>Kies</b><span>Een studio huren of een les volgen.</span></li>
-    <li><b>Boek</b><span>Kies een dag en tijd, vanaf 30 minuten. Je krijgt een bevestiging per e-mail.</span></li>
-    <li><b>Kom binnen</b><span>Met je eigen toegang, of je docent ontvangt je.</span></li>
-    <li><b>Begin</b><span>Koptelefoon op. De apparatuur staat voor je klaar.</span></li>
+    <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3l14 7-6 2-2 6z"/></svg><b>Kies</b><span>Een studio huren of een les volgen.</span></li>
+    <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="1"/><path d="M4 10h16M9 3v4M15 3v4"/></svg><b>Boek</b><span>Kies een dag en tijd, vanaf 30 minuten. Je krijgt een bevestiging per e-mail.</span></li>
+    <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 21V4h12v17M3 21h18"/><path d="M15 12.5v1"/></svg><b>Kom binnen</b><span>Met je eigen toegang, of je docent ontvangt je.</span></li>
+    <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 15v-3a8 8 0 0 1 16 0v3"/><rect x="3" y="14" width="4" height="6"/><rect x="17" y="14" width="4" height="6"/></svg><b>Begin</b><span>Koptelefoon op. De apparatuur staat voor je klaar.</span></li>
   </ol>
 </section>
 
 <!-- 5. WIE ERACHTER ZITTEN -->
-<section class="block" id="team">
+<section class="block wide" id="team">
   <p class="eyebrow">Wie je hier tegenkomt</p>
   <h2>De docenten</h2>
   <p class="intro">Stap je binnen zonder ervaring? Dan word je hier goed geholpen. We beginnen bij jouw muzieksmaak en gaan in jouw tempo.</p>
@@ -239,7 +252,7 @@
 -->
 
 <!-- 7. VEELGESTELDE VRAGEN EN CONTACT -->
-<section class="block" id="faq">
+<section class="block wide" id="faq">
   <h2>Veelgestelde vragen</h2>
   <div class="faq" data-faq="home">
     <details>
@@ -266,9 +279,9 @@
   <p class="note"><a class="textlink" href="faq.html">Alle vragen</a></p>
 </section>
 
-<section class="block" id="locatie">
+<section class="block wide" id="locatie">
   <h2>Contact en locatie</h2>
-  <div class="map">
+  <div class="loc-grid"><div class="map">
     <iframe data-c-map title="Kaart van Den Bosch" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Den+Bosch&amp;output=embed"></iframe>
   </div>
   <dl class="info">
@@ -279,7 +292,7 @@
     <div><dt>Meenemen</dt><dd data-c="contact.bring">Je eigen koptelefoon als je die hebt. De rest staat klaar.</dd></div>
     <div><dt>Telefoon</dt><dd><a data-c-tel href="tel:+31626232734">06 26232734</a></dd></div>
     <div><dt>E-mail</dt><dd><a data-c-mail href="mailto:studioklassiek.db@gmail.com">studioklassiek.db@gmail.com</a></dd></div>
-  </dl>
+  </dl></div>
 </section>
 
 </main>
@@ -320,6 +333,7 @@
 <script src="common.js"></script>
 <script src="content.js"></script>
 <script src="hero.js"></script>
+<script src="home.js"></script>
 <script src="early.js"></script>
 </body>
 </html>
