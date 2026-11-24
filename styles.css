@@ -514,12 +514,12 @@ main > .block + .block { border-top: 1px solid var(--line); }
 @media (max-width: 760px) { .course-foot { grid-template-columns: 1fr; } }
 
 /* ===== Hero: links uitgelijnd met een golfvorm onderin ===== */
-.hero { text-align: left; padding: 112px var(--gutter) calc(clamp(168px, 26vh, 260px) + 24px); }
+.hero { text-align: center; padding: 112px var(--gutter) calc(clamp(168px, 26vh, 260px) + 24px); }
 .hero-inner { width: 100%; max-width: 1160px; }
 .hero h1 { font-size: clamp(2.5rem, 6vw, 4.75rem); line-height: 1.06; margin-bottom: 28px; }
-.hero .lead { margin: 0 0 12px; max-width: 34rem; }
+.hero .lead { margin: 0 auto 12px; max-width: 34rem; }
 .hero .small { margin-bottom: 36px; }
-.routes { margin: 0; max-width: 580px; }
+.routes { margin: 0 auto; max-width: 580px; }
 .hero-wave { position: absolute; left: 0; right: 0; bottom: 0; width: 100%; height: clamp(168px, 26vh, 260px); display: block; pointer-events: none; }
 @media (max-width: 760px) { .hero { padding-top: 104px; } }
 
@@ -528,7 +528,7 @@ main > .block + .block { border-top: 1px solid var(--line); }
 .hero h1 em { font-size: 1.14em; }
 .hero .lead { max-width: 30rem; margin-bottom: 20px; font-size: 1.0625rem; line-height: 1.7; color: var(--soft); }
 .hero .small { margin-bottom: 48px; font-size: .8125rem; letter-spacing: .02em; color: rgba(254, 247, 223, .5); }
-.routes { gap: 24px; max-width: 520px; }
+.routes { gap: 24px; max-width: 520px; margin-left: auto; margin-right: auto; }
 .route { gap: 8px; }
 .route small { font-size: .8125rem; color: rgba(254, 247, 223, .55); }
 .route .btn { font-size: 1rem; }
