@@ -594,3 +594,12 @@ main > .block + .block { border-top: 1px solid var(--line); }
 #team .person .portrait { grid-row: span 3; margin: 0; aspect-ratio: 4 / 5; }
 #team .person h3, #team .person .role, #team .person p { grid-column: 2; }
 @media (max-width: 760px) { #team .team { grid-template-columns: 1fr; gap: 28px; } #team .person { grid-template-columns: 120px 1fr; gap: 8px 20px; } }
+
+/* Fotoplekken netter: een passe-partout met messing hoeken, een lijn-camera en de omschrijving in het midden */
+.ph.missing { background: linear-gradient(165deg, #1d0f13 0%, #140a0d 100%); }
+.ph.missing::before { content: ""; position: absolute; inset: 12px; border: 1px solid rgba(217, 178, 122, .16); pointer-events: none; }
+.ph.missing .ph-label { inset: 0; left: 0; right: 0; bottom: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 32px; text-align: center; font: 400 .875rem/1.5 var(--sans); color: rgba(254, 247, 223, .55); }
+.ph.missing .ph-label::before { content: ""; width: 36px; height: 36px; opacity: .75; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23D9B27A' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 8h4l2-3h6l2 3h4v11H3z'/%3E%3Ccircle cx='12' cy='13' r='3.5'/%3E%3C/svg%3E") center / contain no-repeat; }
+
+#team .ph.missing .ph-label { padding: 16px; gap: 12px; font-size: .8125rem; }
+#team .ph.missing .ph-label::before { width: 28px; height: 28px; }
