@@ -33,31 +33,13 @@
     document.querySelectorAll('.facts-list').forEach(function (l) { l.hidden = !l.querySelector('div:not([hidden])'); });
     document.querySelectorAll('.person').forEach(function (p) {
       var note = p.querySelector('.todo-block'); if (note) note.hidden = true;
-      p.hidden = !!p.querySelector('h3 .todo');
+      var nm = p.querySelector('h3'); if (nm) nm.hidden = !!nm.querySelector('.todo');
     });
-    var team = document.getElementById('team');
-    if (team) team.hidden = !team.querySelector('.person:not([hidden])');
     document.querySelectorAll('.st-open').forEach(function (s) {
       s.hidden = s.parentNode.classList.contains('is-open') || !!s.querySelector('[data-st-date].todo');
     });
   }
-  function hideEmptyGallery() {
-    var s = document.getElementById('studio');
-    if (!s) {
-      /* andere pagina's: toon de menuregel alleen als de hoofdfoto van de studio bestaat */
-      var links = document.querySelectorAll('a[href$="#studio"]');
-      links.forEach(function (a) { a.hidden = true; });
-      var probe = new Image();
-      probe.onload = function () { links.forEach(function (a) { a.hidden = false; }); };
-      probe.src = 'assets/foto/studio-1.jpg';
-      return;
-    }
-    var any = !!s.querySelector('.ph:not(.missing)');
-    s.hidden = !any;
-    document.querySelectorAll('a[href$="#studio"]').forEach(function (a) { a.hidden = !any; });
-  }
   hideEmpty();
-  if (document.readyState === 'complete') hideEmptyGallery(); else window.addEventListener('load', hideEmptyGallery);
 
   function apply(c) {
     document.querySelectorAll('[data-c]').forEach(function (el) {

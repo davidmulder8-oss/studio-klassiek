@@ -469,7 +469,21 @@ dd.todo { justify-self: start; }
 [hidden] { display: none !important; }
 
 /* Lege fotoplekken tonen we niet: ze verschijnen vanzelf zodra de foto er is */
-.ph.missing, .hero-media.missing { display: none; }
+.hero-media.missing { display: none; }
+
+/* Ruimte voor foto's: een nette lege lijst met een korte omschrijving, die vanzelf vol raakt */
+.ph { background: var(--bg2); border: 1px solid var(--line); }
+.ph:not(.missing) { border-color: transparent; }
+.ph.missing::after { content: ""; position: absolute; inset: 12px; pointer-events: none; background:
+  linear-gradient(rgba(217, 178, 122, .55), rgba(217, 178, 122, .55)) left top / 16px 1px no-repeat,
+  linear-gradient(rgba(217, 178, 122, .55), rgba(217, 178, 122, .55)) left top / 1px 16px no-repeat,
+  linear-gradient(rgba(217, 178, 122, .55), rgba(217, 178, 122, .55)) right top / 16px 1px no-repeat,
+  linear-gradient(rgba(217, 178, 122, .55), rgba(217, 178, 122, .55)) right top / 1px 16px no-repeat,
+  linear-gradient(rgba(217, 178, 122, .55), rgba(217, 178, 122, .55)) left bottom / 16px 1px no-repeat,
+  linear-gradient(rgba(217, 178, 122, .55), rgba(217, 178, 122, .55)) left bottom / 1px 16px no-repeat,
+  linear-gradient(rgba(217, 178, 122, .55), rgba(217, 178, 122, .55)) right bottom / 16px 1px no-repeat,
+  linear-gradient(rgba(217, 178, 122, .55), rgba(217, 178, 122, .55)) right bottom / 1px 16px no-repeat; }
+.ph.missing .ph-label { left: 24px; right: 24px; bottom: 24px; font: 400 .8125rem var(--sans); color: rgba(254, 247, 223, .5); }
 .price dd, .summary dd, .cal-day, .slot { font-variant-numeric: tabular-nums; }
 /* ===== Premium: de wiel, de menukaart en een rustiger ritme ===== */
 
